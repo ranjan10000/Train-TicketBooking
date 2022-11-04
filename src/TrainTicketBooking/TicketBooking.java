@@ -27,10 +27,10 @@ public class TicketBooking {
 	int availableWaitingList = 1;
 
 	public static void BookTicket(Passenger p) {
-
-		if (ticketbooking.availableLowerBerths == 0) {
-			System.out.println("No Ticket Available");
-		}
+		/*
+		 * if (ticketbooking.availableLowerBerths == 0) {
+		 * System.out.println("No Ticket Available"); }
+		 */
 		if ((p.getBerthPerference().equalsIgnoreCase("L") && ticketbooking.availableLowerBerths > 0)
 				|| (p.getBerthPerference().equalsIgnoreCase("M") && ticketbooking.availableMiddleBerths > 0)
 				|| (p.getBerthPerference().equalsIgnoreCase("U") && ticketbooking.availableUpperBerths > 0)) {
@@ -158,7 +158,6 @@ public class TicketBooking {
 	public void printAvailable() {
 
 		System.out.println("Available Lower Berths - " + availableLowerBerths);
-
 		System.out.println("Available Middle Berths - " + availableMiddleBerths);
 		System.out.println("Available Upper Berths - " + availableUpperBerths);
 		System.out.println("Available Waiting List - " + availableWaitingList);
