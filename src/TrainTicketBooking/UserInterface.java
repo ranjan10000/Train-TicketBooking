@@ -2,7 +2,7 @@ package TrainTicketBooking;
 
 import java.util.Scanner;
 
-public class UserInterface {
+public class UserInterface extends TicketBooking{
 	
 	public static void start() {
 
@@ -10,7 +10,6 @@ public class UserInterface {
 		Scanner s = new Scanner(System.in);
 		Scanner s1 = new Scanner(System.in);
 
-		TicketBooking booker = new TicketBooking();
 		try {
 			while (loop) {
 
@@ -38,10 +37,9 @@ public class UserInterface {
 
 								Passenger p = new Passenger();
 								p.passenger(name, age, berthPerference);
-								BookTicket bt = new BookTicket();
-								TicketBooking tb = new TicketBooking();
-								bt.BookTicket(p);
-								tb.serverWrite(p);
+								ticketbooking.passengers.put(p.getPassengerId(), p);
+								ticketbooking.BookTicket(p);
+								ticketbooking.serverWrite(p);
 
 							} else {
 
@@ -59,18 +57,18 @@ public class UserInterface {
 				case 2: {
 					System.out.println("Enter Passenger Id to Cancel");
 					int id = s1.nextInt();
-					booker.cancelTicket(id);
+					ticketbooking.cancelTicket(id);
 				}
 					break;
 				// Available Ticket
 				case 3: {
 
-					booker.printAvailable();
+					ticketbooking.printAvailable();
 				}
 					break;
 				// Booked Tickets
 				case 4: {
-					booker.printPassenger();
+					ticketbooking.printPassenger();
 				}
 					break;
 				// Exit
